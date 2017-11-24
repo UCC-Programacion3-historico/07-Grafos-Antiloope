@@ -1,19 +1,43 @@
 #ifndef GRAFOENLAZADO_H
 #define GRAFOENLAZADO_H
 
+template<class T,class K>
+class NodoGrafo {
 
-template<class T>
+private:
+    NodoGrafo<T,K>* next;
+    ArgoGrafo<T,K>* lazos;
+    
+public:
+
+
+}
+
+template<class T,class K>
+class ArcoGrafo {
+    
+private:
+    ArcoGrafo<T,K>* next;
+    NodoGrafo<T,K>* lazo;
+    
+public:
+
+
+
+}
+
+template<class T,class K>
 class GrafoEnlazado {
 
 private:
-
+    NodoGrafo<T,K>* inicio;
 
 public:
     GrafoEnlazado();
 
     // Metodos de Nodos
 
-    void nodo_agregar(int n, T val);
+    void nodo_agregar(T val);
 
     void nodo_remover(int n);
 
