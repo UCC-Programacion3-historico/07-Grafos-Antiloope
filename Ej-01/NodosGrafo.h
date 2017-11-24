@@ -10,7 +10,7 @@ private:
     T dato;
     int id;
 public:
-    NodoGrafo();
+    NodoGrafo(T d,int i);
 
     void setNext(NodoGrafo<T>* n) {next = n;}
     NodoGrafo<T>* getNext() {return next;}
@@ -30,7 +30,7 @@ private:
     NodoGrafo<T>* lazo;
     int peso;
 public:
-    ArcoGrafo();
+    ArcoGrafo(int p);
 
     void setNext(ArcoGrafo<T>* n) {next = n;}
     ArcoGrafo<T>* getNext() {return next;}
@@ -41,12 +41,17 @@ public:
 
 }
 
-NodoGrafo<T>::NodoGrafo() {
-
+NodoGrafo<T>::NodoGrafo(T d,int i) {
+    next  = NULL;
+    lazos = NULL;
+    dato  = d;
+    id    = i;
 }
 
-ArcoGrafo<T>::ArcoGrafo() {
-
+ArcoGrafo<T>::ArcoGrafo(int p) {
+    next = NULL;
+    lazo = NULL;
+    peso = p;
 }
 
 #endif

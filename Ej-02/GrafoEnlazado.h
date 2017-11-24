@@ -7,7 +7,7 @@ template<class T>
 class GrafoEnlazado {
 
 private:
-    NodoGrafo<T,K>* inicio;
+    NodoGrafo<T>* inicio;
 
 public:
     GrafoEnlazado();
@@ -43,12 +43,22 @@ public:
 
 template<class T>
 GrafoEnlazado<T>::GrafoEnlazado() {
-
+    inicio = NULL;
 }
 
 template<class T>
 void GrafoEnlazado<T>::nodo_agregar(int n, T val) {
-
+    if(inicio == NULL) {
+        NodoGrafo<T>* nuevoNodo = new NodoGrafo<T>(val,n);
+        return;
+    }
+    NodoGrafo<T>* aux = inicio;
+    if(aux->getId() == n) return;
+    while(aux->getNext() != NULL) {
+        aux = aux->getNext();
+        if(aux->getId() == n) return;
+    }
+    aux->setNext(new NodoGrafo<T>(val,n));
 }
 
 template<class T>
